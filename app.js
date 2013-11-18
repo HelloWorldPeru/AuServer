@@ -37,5 +37,5 @@ mongo.Db.connect(mongoUri, function (err, db) {
   if(err) throw err;
 
   console.log('Conexion con mongo');
-  require('./routes/index')(app);
+  require('./routes/index')(app, db);
 });
