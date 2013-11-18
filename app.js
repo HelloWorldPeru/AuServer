@@ -11,7 +11,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var mongo = require('mongodb');
-var io = require('socket.io');
+//var io = require('socket.io');
 var app = express();
 
 // all environments
@@ -43,10 +43,10 @@ mongo.Db.connect(mongoUri, function (err, db) {
 });
 
 
-io = io.listen(server);
-
-io.configure(function(){
-	io.disable('log');
-});
-
-require('./controllers/controller')(io);
+//io = io.listen(server);
+//
+//io.configure(function(){
+//	io.disable('log');
+//});
+//
+//require('./controllers/controller')(io);
