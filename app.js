@@ -11,7 +11,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var mongo = require('mongodb');
-//var io = require('socket.io');
+var io = require('socket.io');
 var app = express();
 
 // all environments
