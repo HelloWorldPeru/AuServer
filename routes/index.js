@@ -16,8 +16,9 @@ module.exports =  function(app, db) {
     });
 
     app.post('/comentario', function(req, res) {
+        console.log('consulta del curso: '+ req.param('curso'));
         muro.list(req.param('curso'), function(e, coments) {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
             res.write(JSON.stringify({ mensajes: coments }));
             res.end();
         });
