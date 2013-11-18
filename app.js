@@ -29,8 +29,6 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-require('./routes/index')(app);
-
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
@@ -39,5 +37,5 @@ mongo.Db.connect(mongoUri, function (err, db) {
   if(err) throw err;
 
   console.log('Conexion con mongo');
-
+  require('./routes/index')(app);
 });
