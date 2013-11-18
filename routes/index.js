@@ -7,12 +7,19 @@ module.exports =  function(app, db) {
         });
     });
 
-
-    app.post('/', function(req, res){
+    app.post('/', function(req, res) {
         muro.new({name: req.param('name'), comentario:req.param('comentario')}, function(e){
             muro.list(function(e, coments){
                 res.render('index', { title: 'Lista de comentarios', comentarios: coments });
             });
+        });
+    });
+
+    app.get('/comentario', function(req, res) {
+        muro.list(function(e, coments){
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.write(JSON.stringify({ mensajes: coments }));
+            res.end();
         });
     });
 
