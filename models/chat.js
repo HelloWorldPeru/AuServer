@@ -12,8 +12,8 @@ muro.new =  function(newData, callBack){
     });
 };
 
-muro.list =  function(callBack) {
-    muro.coments.find().toArray(function(e, res){
+muro.list =  function(curso, callBack) {
+    muro.coments.find({curso:curso}).toArray(function(e, res){
         if(e) {
             callBack(e)
         } else {

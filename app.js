@@ -40,13 +40,11 @@ mongo.Db.connect(mongoUri, function (err, db) {
 
   console.log('Conexion con mongo');
   require('./routes/index')(app, db);
+  io = io.listen(server);
+
+  io.configure(function(){
+      io.disable('log');
+  });
+
+  require('./controllers/controller')(io, db);
 });
-
-
-io = io.listen(server);
-
-io.configure(function(){
-	io.disable('log');
-});
-
-require('./controllers/controller')(io);

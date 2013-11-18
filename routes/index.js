@@ -2,7 +2,7 @@ module.exports =  function(app, db) {
     var muro = require('../models/chat')(db);
 
     app.get('/', function(req, res){
-        muro.list(function(e, coments){
+        muro.list('', function(e, coments){
             res.render('index', { title: 'Lista de comentarios', comentarios: coments});
         });
     });
@@ -15,12 +15,13 @@ module.exports =  function(app, db) {
         });
     });
 
-    app.get('/comentario', function(req, res) {
-        muro.list(function(e, coments){
+    app.post('/comentario', function(req, res) {
+        muro.list(req.param('curso'), function(e, coments) {
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.write(JSON.stringify({ mensajes: coments }));
             res.end();
         });
     });
+
 
 };
