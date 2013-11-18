@@ -43,10 +43,10 @@ mongo.Db.connect(mongoUri, function (err, db) {
 });
 
 
-//io = io.listen(server);
-//
-//io.configure(function(){
-//	io.disable('log');
-//});
-//
-//require('./controllers/controller')(io);
+io = io.listen(server);
+
+io.configure(function(){
+	io.disable('log');
+});
+
+require('./controllers/controller')(io);
