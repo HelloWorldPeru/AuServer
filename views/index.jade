@@ -3,3 +3,17 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  form(method='post')
+    label nombre
+    input(type='text', name='name')
+    br
+    label Comentario
+    input(type='text', name='comentario')
+    br
+    input(type='submit', value='Publicar')
+
+  ul#comentarios
+    if(typeof(comentarios) != "undefined")
+        each item in comentarios
+            li #{item.name} : #{item.comentario}
