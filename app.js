@@ -7,11 +7,11 @@ var mongoUri = process.env.MONGOLAB_URI ||
  */
 
 var express = require('express');
+var io = require('socket.io');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var mongo = require('mongodb');
-var io = require('socket.io');
 var app = express();
 
 // all environments
